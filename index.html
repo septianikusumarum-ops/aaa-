@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- COVER SECTION -->
+<section class="cover" id="cover">
+  <div class="overlay"></div>
+  <div class="cover-content">
+    <p class="to">Kepada Yth.</p>
+    <h2 id="guestName">Tamu Undangan</h2>
+    <button id="openBtn">Buka Undangan</button>
+  </div>
+</section>
+
+<!-- VIDEO OPENING -->
+<section class="video-section" id="videoSection">
+  <video id="openingVideo" playsinline>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</section>
+
+<!-- BACKGROUND-DOA -->
+<section class="doa-slide">
+  <!--Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya. Dia menjadikan di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.  -->
+</section>
+
+<!-- SLIDE MEMPELAI -->
+<section class="couple-slide">
+
+  <div class="couple-box">
+
+    <div class="couple-photo">
+      <!--Riedho Septiani Kusumaningrum-->
+	<img src="foto-wanita.png" alt="">
+    </div>
+    
+
+    <div class="couple-photo">
+      <!--Mukhamad Rizki Arifanto-->
+	<img src="foto-pria.png" alt="">
+    </div>
+    
+  </div>
+
+</section>
+
+<section class="location-slide">
+
+  <div class="location-design">
+
+    <!-- DESAIN KAMU -->
+
+    <p class="akses-text">Klik untuk mengakses lokasi</p>
+
+    <a 
+      href="https://maps.app.goo.gl/TXDybBNRkUiU1XCaA" 
+      target="_blank"
+      class="map-access-button">
+      Google Maps
+    </a>
+
+  </div>
+
+</section>
+
+<!-- RSVP SLIDE -->
+<section class="rsvp-slide">
+
+  <div class="rsvp-overlay">
+    <div class="rsvp-card">
+
+      <h2 class="rsvp-title">RSVP</h2>
+
+      <p class="rsvp-desc">
+        Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila 
+        Bapak/Ibu/Saudara/i dapat berkenan menghadiri acara kami. 
+        Untuk mengkonfirmasi kehadiran silahkan mengisi form berikut ini:
+      </p>
+
+      <form id="rsvpForm" class="rsvp-form">
+  <input type="text" name="nama" placeholder="Nama Lengkap" required>
+
+  <select name="kehadiran" required>
+    <option value="">Konfirmasi Kehadiran</option>
+    <option value="Hadir">Hadir</option>
+    <option value="Tidak Hadir">Tidak Hadir</option>
+  </select>
+
+  <textarea name="ucapan" placeholder="Ucapan & Doa"></textarea>
+
+  <button type="submit">Kirim RSVP</button>
+</form>
+
+
+
+
+<script src="script.js"></script>
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxwoSDL8g7iwhhk1_lZ1m0SGNyzSS8-kuLV1w9UofHVRdflWdX0VP5JRGRM1hxGq9yC/exec";
+const form = document.getElementById("rsvpForm");
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+  const data = {
+    nama: formData.get("nama"),
+    kehadiran: formData.get("kehadiran"),
+    ucapan: formData.get("ucapan")
+  };
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    alert("Terima kasih, konfirmasi berhasil dikirim 💌");
+    form.reset();
+  })
+  .catch(error => {
+    alert("Terjadi kesalahan, coba lagi.");
+  });
+});
+</script>
+</body>
+</html>
