@@ -1,138 +1,93 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Invitation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riedho & Rizki</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- AUDIO -->
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<!-- COVER SECTION -->
-<section class="cover" id="cover">
-  <div class="overlay"></div>
-  <div class="cover-content">
-    <p class="to">Kepada Yth.</p>
+<!-- SLIDE 1 COVER -->
+<section class="slide cover">
+  <div class="overlay">
+    <p class="kepada">Kepada Yth.</p>
     <h2 id="guestName">Tamu Undangan</h2>
-    <button id="openBtn">Buka Undangan</button>
+    <button onclick="openInvitation()">Buka Undangan</button>
   </div>
 </section>
 
-<!-- VIDEO OPENING -->
-<section class="video-section" id="videoSection">
-  <video id="openingVideo" playsinline>
-    <source src="video.mp4" type="video/mp4">
+<!-- SLIDE 2 VIDEO -->
+<section class="slide video-slide">
+  <video autoplay muted loop playsinline>
+    <source src="assets/video.mp4" type="video/mp4">
   </video>
 </section>
 
-<!-- BACKGROUND-DOA -->
-<section class="doa-slide">
-  <!--Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu cenderung dan merasa tenteram kepadanya. Dia menjadikan di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir.  -->
+<!-- SLIDE 3 DOA -->
+<section class="slide doa">
+  <div class="content">
+    <p class="arab">
+      وَمِنْ كُلِّ شَيْءٍ خَلَقْنَا زَوْجَيْنِ لَعَلَّكُمْ تَذَكَّرُونَ
+    </p>
+    <p class="arti">
+      "Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat kebesaran Allah."
+    </p>
+  </div>
 </section>
 
-<!-- SLIDE MEMPELAI -->
-<section class="couple-slide">
+<!-- SLIDE 4 FOTO -->
+<section class="slide foto">
+  <img src="assets/foto-3.jpg" alt="Foto Prewedding">
+</section>
 
-  <div class="couple-box">
+<!-- SLIDE 5 LOKASI -->
+<section class="slide lokasi">
+  <h2>Lokasi Acara</h2>
+  <p>Museum Brawijaya Malang</p>
+  <p>29 Agustus 2026 | 13.00 - 14.00 WIB</p>
 
-    <div class="couple-photo">
-      <!--Riedho Septiani Kusumaningrum-->
-	<img src="foto-wanita.png" alt="">
-    </div>
-    
+  <a href="https://maps.app.goo.gl/" target="_blank" class="btn">
+    Lihat Lokasi
+  </a>
+</section>
 
-    <div class="couple-photo">
-      <!--Mukhamad Rizki Arifanto-->
-	<img src="foto-pria.png" alt="">
-    </div>
-    
+<!-- SLIDE 6 RSVP -->
+<section class="slide rsvp">
+  <h2>Konfirmasi Kehadiran</h2>
+
+  <form id="rsvpForm">
+    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+
+    <select name="kehadiran" required>
+      <option value="">Pilih Kehadiran</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+
+    <textarea name="ucapan" placeholder="Ucapan & Doa"></textarea>
+
+    <button type="submit">Kirim</button>
+  </form>
+</section>
+
+<!-- SLIDE 7 WEDDING GIFT -->
+<section class="slide gift">
+  <h2>Wedding Gift</h2>
+
+  <div class="card">
+    <h3>Bank BCA</h3>
+    <p id="rek1">1234567890</p>
+    <button onclick="copyRek('rek1')">Salin No. Rekening</button>
   </div>
 
-</section>
-
-<section class="location-slide">
-
-  <div class="location-design">
-
-    <!-- DESAIN KAMU -->
-
-    <p class="akses-text">Klik untuk mengakses lokasi</p>
-
-    <a 
-      href="https://maps.app.goo.gl/TXDybBNRkUiU1XCaA" 
-      target="_blank"
-      class="map-access-button">
-      Google Maps
-    </a>
-
+  <div class="card">
+    <h3>Bank Mandiri</h3>
+    <p id="rek2">0987654321</p>
+    <button onclick="copyRek('rek2')">Salin No. Rekening</button>
   </div>
-
 </section>
-
-<!-- RSVP SLIDE -->
-<section class="rsvp-slide">
-
-  <div class="rsvp-overlay">
-    <div class="rsvp-card">
-
-      <h2 class="rsvp-title">RSVP</h2>
-
-      <p class="rsvp-desc">
-        Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila 
-        Bapak/Ibu/Saudara/i dapat berkenan menghadiri acara kami. 
-        Untuk mengkonfirmasi kehadiran silahkan mengisi form berikut ini:
-      </p>
-
-      <form id="rsvpForm" class="rsvp-form">
-  <input type="text" name="nama" placeholder="Nama Lengkap" required>
-
-  <select name="kehadiran" required>
-    <option value="">Konfirmasi Kehadiran</option>
-    <option value="Hadir">Hadir</option>
-    <option value="Tidak Hadir">Tidak Hadir</option>
-  </select>
-
-  <textarea name="ucapan" placeholder="Ucapan & Doa"></textarea>
-
-  <button type="submit">Kirim RSVP</button>
-</form>
-
-
-
 
 <script src="script.js"></script>
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbxwoSDL8g7iwhhk1_lZ1m0SGNyzSS8-kuLV1w9UofHVRdflWdX0VP5JRGRM1hxGq9yC/exec";
-const form = document.getElementById("rsvpForm");
-
-form.addEventListener("submit", e => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-  const data = {
-    nama: formData.get("nama"),
-    kehadiran: formData.get("kehadiran"),
-    ucapan: formData.get("ucapan")
-  };
-
-  fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(data)
-  })
-  .then(response => {
-    alert("Terima kasih, konfirmasi berhasil dikirim 💌");
-    form.reset();
-  })
-  .catch(error => {
-    alert("Terjadi kesalahan, coba lagi.");
-  });
-});
-</script>
 </body>
-
 </html>
