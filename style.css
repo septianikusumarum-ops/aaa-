@@ -2,231 +2,101 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Playfair Display', serif;
 }
 
 body {
-  overflow-x: hidden;
+  scroll-behavior: smooth;
+  color: #333;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
 }
 
 /* COVER */
 .cover {
-  height: 100vh;
-  background: url(cover-bg.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: url("assets/cover-bg.jpg") center/cover no-repeat;
   position: relative;
-  text-align: center;
-  color: white;
 }
 
-.overlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-}
-
-.cover-content {
-  position: relative;
-  z-index: 2;
-}
-
-.cover-content h2 {
-  margin: 15px 0;
-  font-size: 28px;
-}
-
-#openBtn {
-  padding: 12px 30px;
-  border: none;
-  background: white;
-  color: black;
-  font-weight: 600;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-#openBtn:hover {
-  background: #f4c2c2;
-  color: white;
-}
-
-/* VIDEO SECTION */
-.video-section {
-  height: 100vh;
-  display: none;
-  background: black;
-}
-
-.video-section video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.doa-slide {
-  height: 100vh;
-  width: 100%;
-  scroll-snap-align: start;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: url('assets/background-3.jpg') center/cover no-repeat;
-}
-
-.couple-slide {
-  min-height: 100vh;
-  padding: 60px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('assets/background-4.jpg') center/cover no-repeat;
-}
-
-.couple-box {
-  width: 100%;
-  max-width: 420px;
-  text-align: center;
-}
-
-/* FOTO OVAL */
-.couple-photo {
-  width: 220px;
-  height: 280px;
-  margin: 0 auto 25px auto;
-  border-radius: 50% / 60%;
-  overflow: hidden;
-  border: 6px solid #4f5f3b; /* warna hijau seperti desain */
-  background: #9fb2c9;
-}
-
-.couple-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* LOCATION SLIDE */
-.location-slide {
-  min-height: 100vh;
-  width: 100%;
-}
-
-/* TOMBOL TANPA MENGUBAH DESAIN */
-.map-access-button {
-  display: block;
-  width: 100%;
-  height: 40px;
-  margin-top: 10px;
-  text-decoration: none;
-}
-
-.map-access-button {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 28px;
-  background-color: #4f5f3b;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: 0.3s ease;
-}
-
-.map-access-button:hover {
-  background-color: #6a7c50;
-  transform: translateY(-2px);
-}
-
-/* RSVP SLIDE */
-.rsvp-slide {
-  background: url('background-6.jpg') center/cover no-repeat;
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Overlay supaya tulisan tetap jelas */
-.rsvp-overlay {
-  background: rgba(255, 255, 255, 0.75);
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-/* Card putih mengikuti desain kamu */
-.rsvp-card {
-  background: white;
-  max-width: 420px;
-  width: 100%;
-  padding: 30px;
+.cover .overlay {
+  background: rgba(255,255,255,0.7);
+  padding: 40px;
   border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.rsvp-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.rsvp-desc {
-  font-size: 14px;
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-/* FORM STYLE */
-.rsvp-form input,
-.rsvp-form select,
-.rsvp-form textarea {
+/* VIDEO */
+.video-slide video {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 14px;
+  height: 100%;
+  object-fit: cover;
 }
 
-.rsvp-form textarea {
-  min-height: 80px;
-  resize: none;
+/* DOA */
+.doa {
+  background: linear-gradient(135deg, #f9f0f3, #eef4ff);
 }
 
-.rsvp-form button {
+.arab {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* FOTO */
+.foto img {
   width: 100%;
-  padding: 12px;
-  border: none;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LOKASI */
+.lokasi {
+  background: linear-gradient(135deg, #fce4ec, #e3f2fd);
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #f5c6d6, #cfe3ff);
   border-radius: 30px;
-  background: #d8a7b1;
-  color: white;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
 }
 
-.rsvp-form button:hover {
-  background: #c48b97;
-}
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-section {
-  min-height: 100vh;
+/* RSVP */
+.rsvp form {
   width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rsvp input,
+.rsvp select,
+.rsvp textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* GIFT */
+.gift {
+  background: #fafafa;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
